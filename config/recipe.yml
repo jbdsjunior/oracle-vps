@@ -8,8 +8,11 @@ platforms:
   - linux/arm64
 
 modules:
-  # 1. Copia arquivos de config/files/ diretamente para a raiz (/) da imagem
+  # 1. Copia arquivos de config/files/etc diretamente para /etc da imagem
   - type: files
+    files:
+      - source: etc
+        destination: /etc
 
   # 2. Gerenciamento declarativo de pacotes com dnf5/dnf4
   - type: dnf
@@ -29,7 +32,7 @@ modules:
   # 3. Gerenciamento e ativação de unidades systemd
   - type: systemd
     system:
-      enable:
+      enabled:
         - tailscaled.service
         - podman.socket
         - podman-auto-update.timer
