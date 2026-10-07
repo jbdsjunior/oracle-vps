@@ -4,18 +4,9 @@
 *.bak
 .DS_Store
 
-# BlueBuild local cache & builds
-.bluebuild/
-
-# Cosign Private Key (NUNCA versionar a chave privada!)
-cosign.key
-cosign.private
-
-# Local secrets / keys de VPN (NUNCA versionar)
+# Local secrets / keys (NUNCA versionar)
 *.key
 *.conf.local
 wireguard/privatekey
 wireguard/wg0.conf
 
-# Permitir explicitamente a chave pública cosign
-!cosign.pub

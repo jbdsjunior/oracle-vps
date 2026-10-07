@@ -39,3 +39,4 @@ modules:
   - type: script
     snippets:
       - mkdir -p /var/lib/adguardhome/work /var/lib/adguardhome/conf
+
