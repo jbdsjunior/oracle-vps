@@ -2,7 +2,7 @@
 name: oracle-vps
 description: Imagem de servidor imutável personalizada para Oracle Cloud A1.Flex ARM64
 base-image: quay.io/fedora/fedora-bootc
-image-version: 41
+image-version: latest
 
 modules:
   - type: dnf
@@ -36,3 +36,4 @@ modules:
         - podman.socket
         - podman-auto-update.timer
         - bootc-update.timer
+

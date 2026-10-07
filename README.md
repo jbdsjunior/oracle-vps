@@ -81,7 +81,7 @@ A instância **VM.Standard.A1.Flex** (Ampere Altra ARM64) no nível Always Free 
 ## 🛠️ Stack de Serviços
 
 1. **Kernel / Host:**
-   - Fedora bootc 41+ (ARM64).
+   - Fedora bootc (tag `latest`, ARM64).
    - SELinux ativo em modo Enforcing.
    - Forwarding de pacotes IP e sysctls otimizados para VPN.
 2. **Conectividade & Rede:**
@@ -216,3 +216,4 @@ Type=oneshot
 ExecStart=/usr/bin/bootc update --apply
 ```
 *(A flag `--apply` reinicia a máquina automaticamente se houver nova versão).*
+

@@ -1,4 +1,4 @@
-FROM quay.io/fedora/fedora-bootc:41
+FROM quay.io/fedora/fedora-bootc:latest
 
 # 1. Instalar pacotes essenciais do host (Rede, VPN, Utilidades)
 RUN dnf install -y \
@@ -34,3 +34,4 @@ RUN systemctl enable tailscaled.service && \
 
 # 6. Criar diretórios de persistência de dados de containers
 RUN mkdir -p /var/lib/adguardhome/work /var/lib/adguardhome/conf
+
