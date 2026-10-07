@@ -1,0 +1,16 @@
+[Unit]
+Description=AdGuard Home DNS Server & Ad Blocker
+After=network-online.target
+
+[Container]
+Image=docker.io/adguard/adguardhome:latest
+AutoUpdate=registry
+Network=host
+Volume=/var/lib/adguardhome/work:/opt/adguardhome/work:Z
+Volume=/var/lib/adguardhome/conf:/opt/adguardhome/conf:Z
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

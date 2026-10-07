@@ -1,0 +1,10 @@
+[Unit]
+Description=Atualização automática da imagem do SO com bootc
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/bootc update --apply
+StandardOutput=journal
+StandardError=journal

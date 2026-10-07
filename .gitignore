@@ -1,0 +1,11 @@
+# Backups & Temp
+*~
+*.swp
+*.bak
+.DS_Store
+
+# Local secrets / keys (NUNCA versionar)
+*.key
+*.conf.local
+wireguard/privatekey
+wireguard/wg0.conf
