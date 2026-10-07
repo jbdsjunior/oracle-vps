@@ -8,3 +8,4 @@ Type=oneshot
 ExecStart=/usr/bin/bootc update --apply
 StandardOutput=journal
 StandardError=journal
+

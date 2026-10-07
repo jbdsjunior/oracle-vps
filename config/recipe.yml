@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
+name: oracle-vps
+description: Imagem de servidor imutável personalizada para Oracle Cloud A1.Flex ARM64
+base-image: quay.io/fedora/fedora-bootc
+image-version: latest
+
+platforms:
+  - linux/arm64
+
+modules:
+  # 1. Copia arquivos de config/files/ diretamente para a raiz (/) da imagem
+  - type: files
+
+  # 2. Gerenciamento declarativo de pacotes com dnf5/dnf4
+  - type: dnf
+    install:
+      packages:
+        - wireguard-tools
+        - tailscale
+        - podman
+        - iptables
+        - nftables
+        - systemd-resolved
+        - curl
+        - wget
+        - htop
+        - nano
+
+  # 3. Gerenciamento e ativação de unidades systemd
+  - type: systemd
+    system:
+      enable:
+        - tailscaled.service
+        - podman.socket
+        - podman-auto-update.timer
+        - bootc-update.timer
+
+  # 4. Criação de diretórios persistentes para containers
+  - type: script
+    snippets:
+      - mkdir -p /var/lib/adguardhome/work /var/lib/adguardhome/conf
